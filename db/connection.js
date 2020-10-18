@@ -3,11 +3,10 @@ const mysql = require('mysql')
 module.exports = {
     execSQLQuery: () => {
         const connection = mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            port: "3306",
-            password: "8601",
-            database: "flink01"
+            host: "us-cdbr-east-02.cleardb.com",
+            user: "b5e448b4688021",
+            password: "68e0cd3d",
+            database: "heroku_2d72029db592459"
         });
         return connection;
     }

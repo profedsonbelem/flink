@@ -7,6 +7,8 @@ const swaggerUi = require('swagger-ui-express');
 // const swaggerDocument = require('./swagger.json');
 const cors = require('cors')
 
+
+const PORT = process.env.PORT || 4006
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -32,4 +34,4 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api', router);
 
 
-app.listen(4006, () => console.log('Start port 4006'))
+app.listen(PORT, () => console.log('Start port 4006'))
