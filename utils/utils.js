@@ -25,7 +25,7 @@ module.exports = {
         let descricao = post.descricao;
         let imagem = post.imagem;
 
-        
+
         jwt.verify(req.token, 'secretkey', (err, authData) => {
             if (err) {
                 res.sendStatus(403);
@@ -64,7 +64,7 @@ module.exports = {
         let email = user.email;
         let senha = user.senha;
 
-        let query = "select * from user";
+        let query = "select * from usuario";
 
         db.execSQLQuery().query(query, function (error, results, fields) {
             if (error)
@@ -88,7 +88,7 @@ module.exports = {
         let login = user.email;
         let senha = user.senha;
     
-        db.execSQLQuery(`insert into user (email,senha) values ('${login}','${senha}')`, res);
+        db.execSQLQuery(`insert into usuario (email,senha) values ('${login}','${senha}')`, res);
     }
 
 }
