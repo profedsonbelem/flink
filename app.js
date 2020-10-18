@@ -30,7 +30,7 @@ router.post('/create', (req, res) => {
     Utils.createLogin(req, res)
 })
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api', router);
 
 
