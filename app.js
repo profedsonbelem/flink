@@ -8,7 +8,7 @@ const swaggerUi = require('swagger-ui-express');
 const cors = require('cors')
 // mysql://b5e448b4688021:68e0cd3d@us-cdbr-east-02.cleardb.com/heroku_2d72029db592459?reconnect=true
 
-// const PORT = process.env.PORT || 4006
+const PORT = process.env.PORT || 4006
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header("Access-Control-Allow-Credentials", "true");
@@ -41,4 +41,4 @@ router.post('/create', (req, res) => {
 app.use('/api', router);
 
 
-app.listen(4006, () => console.log('Start port 4006'))
+app.listen(PORT, () => console.log('Start port 4006'))
