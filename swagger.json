@@ -21,6 +21,11 @@
 	"schemes": [
 		"https"
 	],
+	"securityDefinitions":[{
+		"type":"apiKey"
+	}
+
+	],
 	"consumes": [
 		"application/json"
 	],
@@ -128,8 +133,9 @@
 				"tags": [
 					"post"
 				],
-				"bearerAuth": [
+				"parameters": [
 					{
+						
 						"name": "Authorization",
 						"in": "header",
 						"description": "Authorization",
