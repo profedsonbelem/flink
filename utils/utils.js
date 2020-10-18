@@ -87,8 +87,15 @@ module.exports = {
         let user = req.body
         let login = user.email;
         let senha = user.senha;
-    
-        db.execSQLQuery(`insert into usuario (email,senha) values ('${login}','${senha}')`, res);
+        let query = `insert into usuario (email,senha) values ('${login}','${senha}')`;
+        db.execSQLQuery().query(query, function (error, results, fields) {
+            if (error)
+                res.json(error);
+            else {
+                res.json({results})
+            }
+            db.execSQLQuery().end();
+        })
     }
 
 }

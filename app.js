@@ -1,15 +1,22 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const Utils = require('./Utils/Utils')
+const Utils = require('./utils/utils')
 const app = express();
 const router = express.Router();
 const swaggerUi = require('swagger-ui-express');
 // const swaggerDocument = require('./swagger.json');
 const cors = require('cors')
+// mysql://b5e448b4688021:68e0cd3d@us-cdbr-east-02.cleardb.com/heroku_2d72029db592459?reconnect=true
 
-
-const PORT = process.env.PORT || 6005
-app.use(cors())
+// const PORT = process.env.PORT || 4006
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header('Access-Control-Allow-Methods',  'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With,   Content-Type, X-Codingpedia, Authorization');
+    next();
+   });
+   
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -34,4 +41,4 @@ router.post('/create', (req, res) => {
 app.use('/api', router);
 
 
-app.listen(PORT, () => console.log('Start port 4006'))
+app.listen(4006, () => console.log('Start port 4006'))
