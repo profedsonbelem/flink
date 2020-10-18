@@ -25,6 +25,7 @@ module.exports = {
         let descricao = post.descricao;
         let imagem = post.imagem;
 
+        
         jwt.verify(req.token, 'secretkey', (err, authData) => {
             if (err) {
                 res.sendStatus(403);
