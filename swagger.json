@@ -1,0 +1,154 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "1.0.0",
+		"title": "Yet Another Node.js Blogg Application API",
+		"description": "Yet Another Node.js Blogg Application API",
+		"license": {
+			"name": "MIT",
+			"url": "https://opensource.org/licenses/MIT"
+		}
+	},
+	"host": "flink-project.herokuapp.com",
+	"basePath": "/api",
+	"tags": [
+		{
+			"name": "usuario",
+			"description": "API for Contratos in the system"
+		}
+	],
+	
+	"schemes": [
+		"https"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"produces": [
+		"application/json"
+	],
+	"paths": {
+		"/create": {
+			"post": {
+				"tags": [
+					"usuario"
+				],
+				"description": "Create new usuario in system",
+				"parameters": [
+					{
+						"name": "usuario",
+						"in": "body",
+						"description": "usuario that we want to create",
+						"schema": {
+							"$ref": "#/definitions/post"
+						}
+					}
+					
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "New contrato is created",
+						"schema": {
+							"$ref": "#/definitions/contratos"
+						}
+					}
+				}
+			}
+		},
+		"/login": {
+			"post": {
+				"tags": [
+					"usuario"
+				],
+				"description": "Create new usuario in system",
+				"parameters": [
+					{
+						"name": "contratos",
+						"in": "body",
+						"description": "contratos that we want to create",
+						"schema": {
+							"$ref": "#/definitions/contratos"
+						}
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "New contrato is created",
+						"schema": {
+							"$ref": "#/definitions/contratos"
+						}
+					}
+				}
+			}
+		},
+		"/post": {
+			"post": {
+				"tags": [
+					"post"
+				],
+				"description": "Create new contratos in system",
+				"parameters": [
+					{
+						"name": "contratos",
+						"in": "body",
+						"description": "contratos that we want to create",
+						"schema": {
+							"$ref": "#/definitions/contratos"
+						}
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "Authorization",
+						"type":"apiKey",
+						"schema": {
+							"$ref": "#/definitions/post"
+						}
+					}
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "New contrato is created",
+						"schema": {
+							"$ref": "#/definitions/contratos"
+						}
+					}
+				}
+			},
+			"get": {
+				"tags": [
+					"post"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "Authorization",
+						"type":"apiKey",
+						"schema": {
+							"$ref": "#/definitions/post"
+						}
+					}
+				],
+				"summary": "Get post with given ID",
+				"responses": {
+					"200": {
+						"description": "post is found",
+						"schema": {
+							"$ref": "#/definitions/contrato"
+						}
+					}
+				}
+			}
+		}
+	}
+}

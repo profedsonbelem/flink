@@ -4,7 +4,7 @@ const Utils = require('./utils/utils')
 const app = express();
 const router = express.Router();
 const swaggerUi = require('swagger-ui-express');
-// const swaggerDocument = require('./swagger.json');
+const swaggerDocument = require('./swagger.json');
 const cors = require('cors')
 // mysql://b5e448b4688021:68e0cd3d@us-cdbr-east-02.cleardb.com/heroku_2d72029db592459?reconnect=true
 
@@ -37,8 +37,8 @@ router.post('/create', (req, res) => {
     Utils.createLogin(req, res)
 })
 
-// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api', router);
 
 
-app.listen(PORT, () => console.log('Start port 4006'))
+app.listen(PORT, () => console.log('Start port 4006')).timeout = 120000;
