@@ -8,7 +8,7 @@ const swaggerUi = require('swagger-ui-express');
 const cors = require('cors')
 
 
-const PORT = process.env.PORT || 4006
+const PORT = process.env.PORT || 6005
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
