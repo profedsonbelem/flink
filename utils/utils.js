@@ -84,9 +84,9 @@ module.exports = {
                     }
                 })
             }
-
+            db.execSQLQuery().end()
         });
-        db.execSQLQuery().end();
+        
     },
     createLogin: (req, res, next) => {
         let user = req.body
