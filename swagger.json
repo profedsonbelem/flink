@@ -17,15 +17,17 @@
 			"description": "API for Contratos in the system"
 		}
 	],
-	
 	"schemes": [
-		"https"
+		"https",
+		"http"
 	],
-	"securityDefinitions":[{
-		"type":"apiKey"
-	}
-
-	],
+	"securityDefinitions": {
+		"Bearer": {
+			"type": "apiKey",
+			"in": "header",
+			"name": "Authorization"
+		}
+	},
 	"consumes": [
 		"application/json"
 	],
@@ -43,22 +45,15 @@
 					{
 						"name": "usuario",
 						"in": "body",
-						"description": "usuario that we want to create",
-						"schema": {
-							"$ref": "#/definitions/post"
-						}
+						"description": "usuario that we want to create"
 					}
-					
 				],
 				"produces": [
 					"application/json"
 				],
 				"responses": {
 					"200": {
-						"description": "New contrato is created",
-						"schema": {
-							"$ref": "#/definitions/contratos"
-						}
+						"description": "New usuario is created"
 					}
 				}
 			}
@@ -73,10 +68,7 @@
 					{
 						"name": "contratos",
 						"in": "body",
-						"description": "contratos that we want to create",
-						"schema": {
-							"$ref": "#/definitions/contratos"
-						}
+						"description": "contratos that we want to create"
 					}
 				],
 				"produces": [
@@ -84,10 +76,7 @@
 				],
 				"responses": {
 					"200": {
-						"description": "New contrato is created",
-						"schema": {
-							"$ref": "#/definitions/contratos"
-						}
+						"description": "New contrato is created"
 					}
 				}
 			}
@@ -102,19 +91,7 @@
 					{
 						"name": "contratos",
 						"in": "body",
-						"description": "contratos that we want to create",
-						"schema": {
-							"$ref": "#/definitions/contratos"
-						}
-					},
-					{
-						"name": "Authorization",
-						"in": "header",
-						"description": "Authorization",
-						"type":"apiKey",
-						"schema": {
-							"$ref": "#/definitions/post"
-						}
+						"description": "contratos that we want to create"
 					}
 				],
 				"produces": [
@@ -133,25 +110,12 @@
 				"tags": [
 					"post"
 				],
-				"parameters": [
-					{
-						
-						"name": "Authorization",
-						"in": "header",
-						"description": "Authorization",
-						"type":"apiKey",
-						"schema": {
-							"$ref": "#/definitions/post"
-						}
-					}
-				],
-				"summary": "Get post with given ID",
+				"security": [{
+					"Bearer": []
+				}],
 				"responses": {
 					"200": {
-						"description": "post is found",
-						"schema": {
-							"$ref": "#/definitions/contrato"
-						}
+						"description": "post is found"
 					}
 				}
 			}

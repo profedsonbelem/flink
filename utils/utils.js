@@ -36,8 +36,9 @@ module.exports = {
                         res.json(error);
                     else
                         res.json(results);
-                    db.execSQLQuery().end();
+
                 });
+                db.execSQLQuery().end();
             }
         })
     },
@@ -50,10 +51,13 @@ module.exports = {
                 db.execSQLQuery().query(query, function (error, results, fields) {
                     if (error)
                         res.json(error);
-                    else
+                    else {
+
                         res.json(results);
+                    }
                     db.execSQLQuery().end();
                 });
+                
             }
         })
     },
@@ -80,8 +84,9 @@ module.exports = {
                     }
                 })
             }
-            db.execSQLQuery().end();
+
         });
+        db.execSQLQuery().end();
     },
     createLogin: (req, res, next) => {
         let user = req.body
@@ -92,7 +97,7 @@ module.exports = {
             if (error)
                 res.json(error);
             else {
-                res.json({results})
+                res.json({ results })
             }
             db.execSQLQuery().end();
         })
