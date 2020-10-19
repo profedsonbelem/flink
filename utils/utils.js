@@ -57,7 +57,7 @@ module.exports = {
                     }
                     db.execSQLQuery().end();
                 });
-                
+
             }
         })
     },
@@ -69,7 +69,6 @@ module.exports = {
         let senha = user.senha;
 
         let query = "select * from usuario";
-
         db.execSQLQuery().query(query, function (error, results, fields) {
             if (error)
                 res.json(error);
@@ -86,21 +85,28 @@ module.exports = {
             }
             db.execSQLQuery().end()
         });
-        
+
     },
     createLogin: (req, res, next) => {
         let user = req.body
         let login = user.email;
         let senha = user.senha;
         let query = `insert into usuario (email,senha) values ('${login}','${senha}')`;
-        db.execSQLQuery().query(query, function (error, results, fields) {
-            if (error)
-                res.json(error);
-            else {
-                res.json({ results })
+        db.execSQLQuery().connect((err) => {
+            if (err) {
+                console.log(err);
             }
-            db.execSQLQuery().end();
+            db.execSQLQuery().query(query, function (error, results, fields) {
+                if (error)
+                    res.json(error);
+                else {
+                    res.json({ results })
+                }
+
+            })
         })
+        db.execSQLQuery().end();
+
     }
 
 }
