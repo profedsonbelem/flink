@@ -86,6 +86,9 @@
 				"tags": [
 					"post"
 				],
+				"security": [{
+					"Bearer": []
+				}],
 				"description": "Create new contratos in system",
 				"parameters": [
 					{
